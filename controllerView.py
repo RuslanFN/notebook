@@ -29,8 +29,10 @@ class controllerView:
         rootFrame.pack(expand=True, fill=BOTH, ipady=100)
         return root
     def note_form(self, title_note='', text=''):
-        def onm(event):
+        def onmtext(event):
             text_var.set(text_note.get(0.0, END))
+        def onmtitle(event):
+
             title_var.set(title_entry.get() )
         title_var = StringVar()
         text_var = StringVar()
@@ -44,7 +46,8 @@ class controllerView:
         btn = Button(form, text='Сохранить', command=form.destroy)
         #title_entry.insert(0, title_note)
         text_note.insert(0.0, text)
-        text_note.bind('<KeyRelease>', onm)
+        text_note.bind('<KeyRelease>', onmtext)
+        title_entry.bind('<KeyRelease>', onmtitle)
         label1.pack(anchor=W)
         title_entry.pack(anchor=W)
         label2.pack(anchor=W)
